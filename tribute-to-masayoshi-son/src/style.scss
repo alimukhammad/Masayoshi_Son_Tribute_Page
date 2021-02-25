@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+/** Variables **/
+$black: #000000;
+$white: #ffffff;
+$red: #fe0000;
+
+/** General Selectors and Elements **/
+html, body {
+  height: 100%;
+  font-family: 'Oswald', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body {
+  position: relative;
+  background: darken($white, 5);
+
+  .title-wrapper {
+    border-left: .2rem solid $red;
+    padding: 0rem 0 0rem .8rem;
+    margin-left: -1rem;
+  }
+  .separator {
+    width: 50px;
+    height: 1px;
+    background: rgba( $black, .5 );
+    margin: 1.4rem 0;
+  }
+  .highlighted {
+    color: $red;
+  }
+  .justified {
+    text-align: justify;
+  }
+  a, a:visited {
+    color: $red;
+    outline: none;
+    transition: 300ms;
+  
+    &:hover {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  .show {
+    opacity: 1 !important;
+  }
+  .section {
+    opacity: 0;
+    transition: opacity 1.5s;
+  }
+}
+
+/** Navbar **/
+#navbar {
+  transition: 300ms;
+
+  &.bg-black {
+    background: rgba( $black, .8 ) !important;
+  }
+}
+
+/** Home Section **/
+#home {
+  background: url(https://www.vyapaarjagat.com/wp-content/uploads/2020/05/masayoshi-son-scaled.jpg);
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 50% 100%, 0% 100%);
+  opacity: 1 !important;
+  z-index: -1;
+
+  .title {
+    color: #fef;
+    line-height: 1rem;
+    text-shadow: 0px 0px 15px rgba( $black, 0.3 );
+
+    h1 {
+      font-size: 5rem;
+      font-weight: bold;
+    }
+    p {
+      color: #eee;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+/** Intro Section **/
+#main {  
+  #tribute-info {
+    font-size: 1.4rem;
+    text-align: justify;
+  }
+  figure {
+    background: $white;
+    padding: 2rem 2rem 1.5rem 2rem;
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 1024px;
+      height: auto;
+      padding-bottom: .5rem;
+      transform: rotate(-1deg) scale(1.03);
+      filter: grayscale(100%);
+      transition: 300ms;
+
+      &:hover {
+        filter: grayscale(10%);
+        transform: rotate(0deg);
+      }
+    }
+    figcaption {
+      text-align: right;
+    }
+  }
+  a, a:visited {
+    color: $red;
+    outline: none;
+    padding-left: -.3rem;
+    transition: 300ms;
+  
+    &:hover {
+      text-decoration: none;
+      border-left: .3rem solid $red;
+      padding-left: .3rem;
+      color: $black;
+    }
+  }
+
+}
+
+/** Bio Section **/
+#bio {
+  background: $white;
+  font-size: 1.2rem;
+
+  p {
+    text-align: justify;
+  }
+}
+
+/** Film section **/
+#film {
+  background: lighten($black,10);
+  background: radial-gradient(ellipse at left, lighten($black,30) 0%, $black 100%);
+  font-size: 1.2rem;
+  text-align: justify;
+  color: $white;
+
+  .list-group-item {
+    background: transparent;
+    padding-left: 0;
+  }
+  #film-poster {
+    height: 80%;
+    text-align: center;
+  }
+  img {
+    height: 100% !important;
+    border: 1rem solid $white;
+    filter: grayscale(100%);
+    transform: rotate(-2deg);
+    transition: 300ms;
+    &:hover {
+      filter: grayscale(0%);
+      transform: rotate(0deg) scale(1.01);
+    }
+  }
+  a:hover {
+    color: $white;
+  }
+  .separator {
+    background: $white;
+    height: 1px;
+  }
+}
+
+/** Quotes section **/
+#quotes {
+  background: url(https://github.com/yagoestevez/tribute-to-aaron-swartz/raw/master/src/Assets/Images/AaronSwartz.jpg);
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 50% 100%, 0% 100%);
+  z-index: -1;
+
+  .quote-box {
+    border-left: .3rem solid $red;
+    background: $white;
+    padding: 3rem 3rem 1rem 3rem;
+  }
+  .carousel-control-prev, .carousel-control-next {
+    color: $black !important;
+  }
+}
+
+/** Credits **/
+#credits {
+  font-size: 1.4rem;
+  background: transparent;
+  background: repeating-linear-gradient(
+                90deg,
+                #fcfcfc,
+                #fcfcfc 10px,
+                #fafafa 10px,
+                #fafafa 20px
+              );
+
+  small {
+    font-size: 1rem;
+    font-style: italic;
+    color: lighten( $black, 40% );
+  }
+}
+
+/** Preloader **/
+#preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 500ms;
+
+  p {
+    font-size: 2rem;
+    color: $white;
+    text-align: center;
+    padding: 3rem;
+    animation: blink .8s ease infinite;
+  }
+
+  @keyframes blink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+/** Media Queries **/
+@media only screen and (max-device-width: 1366px) {
+  #home, #quotes {
+    background-attachment: scroll;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .section:not(#home):not(#quotes):not(#credits) {
+    height: auto !important;
+  }
+  #film {
+    img {
+      height: auto !important;
+      width: 100% !important;
+    }
+    .film-card {
+      padding-top: 3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #main {
+    .main-desc {
+      padding: 0 !important;
+    }
+  }
+  #film {
+    .film-synopsis {
+      padding-right: 0 !important;
+    }
+  }
+  
+}
+
+@media only screen and (max-height: 700px) {
+  .section:not(#home):not(#credits) {
+    height: auto !important;
+  }
+  #film .row {
+    flex-direction: column;
+    div {
+      width: 100% !important;
+      max-width: none;
+    }
+    .film-card {
+      margin-top: 5rem !important;
+    }
+  }
+}
